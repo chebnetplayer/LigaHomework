@@ -26,20 +26,20 @@ namespace EqualSolverUnitTest
     public class ParsingEquationUnitTest
     {
         [TestMethod]
-        public void equalString_IsitParametres()
+        public void equalString_IsitParameters()
         {
             var expected = "+-1*x^2 + -2*x + -10 = 0";
-            int[] trueParametres = { -1, -2, -10 };
-            var parametres = EquationSolver.ParsingEquation.GetParametres(expected);
-            CollectionAssert.AreEqual(trueParametres, parametres);
+            int[] trueParameters = { -1, -2, -10 };
+            var parameters = EquationSolver.ParsingEquation.GetParameters(expected);
+            CollectionAssert.AreEqual(trueParameters, parameters);
         }
         [TestMethod]
         public void string_IsItInt()
         {
             var expected = "+-1*x^2+-2*x+-10";
-            var trueParametr = -10;
-            var parametr = EquationSolver.ParsingEquation.GetParametr(expected);
-            Assert.AreEqual(trueParametr, parametr);
+            var trueParameter = -10;
+            var parameter = EquationSolver.ParsingEquation.GetParameter(expected);
+            Assert.AreEqual(trueParameter, parameter);
         }
         [TestMethod]
         public void string_IsItCorrectsymbolsremove()
@@ -54,7 +54,7 @@ namespace EqualSolverUnitTest
     public class DiscriminantCalculationUnitTest
     {
         [TestMethod]
-        public void Parametres_ItShouldbeDiscriminant()
+        public void Parameters_ItShouldbeDiscriminant()
         {
             int[] expected = { 2, -8, 6 };
             var actual = EquationSolver.DiscriminantCalculation.GetDiscriminant(expected);
@@ -76,19 +76,19 @@ namespace EqualSolverUnitTest
     public class RootsFinderUnitTest
     {
         [TestMethod]
-        public void ParametresandDiscriminant_X1()
+        public void ParametersandDiscriminant_X1()
         {
-            int[] parametres = { 2, -8, 6 };
-            int discriminant = EquationSolver.DiscriminantCalculation.GetDiscriminant(parametres);
-            double actual = EquationSolver.RootsFinder.GetX1(parametres, discriminant);
+            int[] parameters = { 2, -8, 6 };
+            int discriminant = EquationSolver.DiscriminantCalculation.GetDiscriminant(parameters);
+            double actual = EquationSolver.RootsFinder.GetX1(parameters, discriminant);
             Assert.AreEqual(3, actual);
         }
         [TestMethod]
         public void ParametresandDiscriminant_X2()
         {
-            int[] parametres = { 2, -8, 6 };
-            int discriminant = EquationSolver.DiscriminantCalculation.GetDiscriminant(parametres);
-            double actual = EquationSolver.RootsFinder.GetX2(parametres, discriminant);
+            int[] parameters = { 2, -8, 6 };
+            int discriminant = EquationSolver.DiscriminantCalculation.GetDiscriminant(parameters);
+            double actual = EquationSolver.RootsFinder.GetX2(parameters, discriminant);
             Assert.AreEqual(1, actual);
         }
     }

@@ -7,7 +7,7 @@ namespace EquationSolver
     {
         public static bool ValidateString(string equal)
         {//+-1*x^2+-2*x+-10=0
-          var pattern = @"^(\+-[0-9]{0,10}|[0-9]{0,10})\*x\^2" + @"(\+-[0-9]{0,10}|[0-9]{0,10})\*x" + @"(\+-[0-9]{0,10}|[0-9]{0,10})=0";
+          var pattern = @"^(\+-[0-9]{1,}|[0-9]{1,})\*x\^2" + @"(\+-[0-9]{0,10}|[0-9]{0,10})\*x" + @"(\+-[0-9]{0,10}|[0-9]{0,10})=0";
           return Regex.IsMatch(equal, pattern,RegexOptions.IgnoreCase);
         }
         public static bool FindNull(string equal)
@@ -22,23 +22,23 @@ namespace EquationSolver
     }
     public class ParsingEquation
     {
-       public static int[] GetParametres(string equal)
+       public static int[] GetParameters(string equal)
         {
-            int[] parametres = new int[3];
+            int[] parameters = new int[3];
             equal= DeleteSymbolsInLast(equal, '=');
-            parametres[2] = GetParametr(equal);
+            parameters[2] = GetParameter(equal);
             equal= DeleteSymbolsInLast(equal, '*');
-            parametres[1] = GetParametr(equal);
+            parameters[1] = GetParameter(equal);
             equal= DeleteSymbolsInLast(equal, '*');
-            parametres[0] = GetParametr(equal);
-            return parametres;
+            parameters[0] = GetParameter(equal);
+            return parameters;
         }
         public static string DeleteSymbolsInLast(string text,char symbol)
         {
             int indexOfsymbol = text.LastIndexOf(symbol);
             return text.Remove(indexOfsymbol);
         }
-        public static int GetParametr(string text)
+        public static int GetParameter(string text)
         {
             int lastoperator = text.LastIndexOf("+");
             if (lastoperator != -1)
@@ -48,9 +48,9 @@ namespace EquationSolver
     }
     public class DiscriminantCalculation
     {
-        public static int GetDiscriminant(int[] parametres)
+        public static int GetDiscriminant(int[] parameters)
         {
-            int discriminant = parametres[1]*parametres[1] - 4 * parametres[0] * parametres[2];
+            int discriminant = parameters[1]*parameters[1] - 4 * parameters[0] * parameters[2];
             return discriminant;
         }
     }
@@ -64,14 +64,14 @@ namespace EquationSolver
     }
     public class RootsFinder
     {
-        public static double GetX1(int[] parametres, int discriminant)
+        public static double GetX1(int[] parameters, int discriminant)
         {
-            double x1 = (-parametres[1] + Math.Sqrt(discriminant)) /( 2 * parametres[0]);
+            double x1 = (-parameters[1] + Math.Sqrt(discriminant)) /( 2 * parameters[0]);
             return x1;
         }
-        public static double GetX2(int[] parametres, int discriminant)
+        public static double GetX2(int[] parameters, int discriminant)
         {
-            double x2 = (-parametres[1] - Math.Sqrt(discriminant)) / (2 * parametres[0]);
+            double x2 = (-parameters[1] - Math.Sqrt(discriminant)) / (2 * parameters[0]);
             return x2;
         }
     }
