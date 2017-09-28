@@ -40,8 +40,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="EquationSolver.cs" />
+    <Compile Include="DiscriminantCalculator.cs" />
+    <Compile Include="DiscriminantValidChecker.cs" />
+    <Compile Include="ValidatorString.cs" />
+    <Compile Include="ParsingEquation.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RootsFinder.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
