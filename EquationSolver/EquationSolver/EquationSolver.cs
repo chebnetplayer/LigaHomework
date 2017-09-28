@@ -3,34 +3,25 @@ using System.Text.RegularExpressions;
 
 namespace EquationSolver
 {
-    public class ValidationString
+    public class ValidatorString
     {
-        public static bool ValidateString(string equal)
-        {//+-1*x^2+-2*x+-10=0
-          var pattern = @"^(\+-[0-9]{1,}|[0-9]{1,})\*x\^2" + @"(\+-[0-9]{0,10}|[0-9]{0,10})\*x" + @"(\+-[0-9]{0,10}|[0-9]{0,10})=0";
+        public static bool IsValidEquation(string equal)
+        {
+          var pattern = @"^(\+)?(-)?[1-9](\d+)?\*x\^2\+(-)?[1-9](\d+)?\*x\+(-)?[1-9](\d+)?=0$";
           return Regex.IsMatch(equal, pattern,RegexOptions.IgnoreCase);
-        }
-        public static bool FindNull(string equal)
-        {
-            var pattern = @"^(0|(\+0|-0))";
-            return Regex.IsMatch(equal, pattern);
-        }
-        public static bool CheckNormalEqual(bool first, bool two)
-        {
-            return first && two;
         }
     }
     public class ParsingEquation
     {
-       public static int[] GetParameters(string equal)
+       public static int[] GetParameters(string equation)
         {
             int[] parameters = new int[3];
-            equal= DeleteSymbolsInLast(equal, '=');
-            parameters[2] = GetParameter(equal);
-            equal= DeleteSymbolsInLast(equal, '*');
-            parameters[1] = GetParameter(equal);
-            equal= DeleteSymbolsInLast(equal, '*');
-            parameters[0] = GetParameter(equal);
+            equation= DeleteSymbolsInLast(equation, '=');
+            parameters[2] = GetParameter(equation);
+            equation= DeleteSymbolsInLast(equation, '*');
+            parameters[1] = GetParameter(equation);
+            equation= DeleteSymbolsInLast(equation, '*');
+            parameters[0] = GetParameter(equation);
             return parameters;
         }
         public static string DeleteSymbolsInLast(string text,char symbol)
@@ -46,7 +37,7 @@ namespace EquationSolver
             else return int.Parse(text);
         }
     }
-    public class DiscriminantCalculation
+    public class DiscriminantCalculator
     {
         public static int GetDiscriminant(int[] parameters)
         {
@@ -54,7 +45,7 @@ namespace EquationSolver
             return discriminant;
         }
     }
-    public class DiscriminantChecker
+    public class DiscriminantValidChecker
     {
         public static bool DiscriminantCheck(int discriminant)
         {

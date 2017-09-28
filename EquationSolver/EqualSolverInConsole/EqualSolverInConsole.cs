@@ -7,23 +7,20 @@ namespace EqualSolverInConsole
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("hello,git!!!");
-
-
             Console.WriteLine("Введите уравнение в формате: a*x^2+b*x+c=0"+Environment.NewLine+
                 "Если в уравнении есть минус поставьте его после +"+ Environment.NewLine +
             "Например: 4*x^2+-2*x+-19=0");
             Console.Write("Уравнение:");
             string equation = Console.ReadLine();
-            while ((ValidationString.ValidateString(equation)&&ValidationString.FindNull(equation)==false))
+            while (ValidatorString.IsValidEquation(equation) == false)
             {
-                Console.WriteLine("Введите уравнение в верном формате)");
+                Console.WriteLine("Введите уравнение в верном формате");
                 Console.Write("Уравнение:");
                 equation = Console.ReadLine();
             }
             int[] parameters= ParsingEquation.GetParameters(equation);
-            int discriminant = DiscriminantCalculation.GetDiscriminant(parameters);
-            if (discriminant < 0) 
+            int discriminant = DiscriminantCalculator.GetDiscriminant(parameters);
+            if (DiscriminantValidChecker.DiscriminantCheck(discriminant)==false) 
             {
                 Console.WriteLine("Действительных корней нет!");
                 Console.ReadKey();

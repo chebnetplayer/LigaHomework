@@ -5,7 +5,7 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EquationSolver", "EquationSolver\EquationSolver.csproj", "{0A42A290-4659-4AC1-B0F0-AE9A5DF1A045}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EqualSolverUnitTest", "EqualSolverUnitTest\EqualSolverUnitTest.csproj", "{D06273CD-6AEF-4EC5-A958-C48CD54FA0F7}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EqualSolverUnitTests", "EqualSolverUnitTest\EqualSolverUnitTests.csproj", "{D06273CD-6AEF-4EC5-A958-C48CD54FA0F7}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EqualSolverInConsole", "EqualSolverInConsole\EqualSolverInConsole.csproj", "{0EC8F08F-19C7-4A30-84B4-FFA8F7163C1D}"
 EndProject
