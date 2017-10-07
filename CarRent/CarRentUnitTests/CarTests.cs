@@ -8,7 +8,7 @@ namespace CarRentUnitTests
     public class CarTests
     {      
         [TestMethod]
-        public void CarWithReservations_IsFreetoRentonDate()
+        public void CarWithReservationsonBusyDate_IsFreetoRentonDate()
         {   
             //arr
             var car = new Car("Ford Focus 3", "black");
@@ -18,6 +18,16 @@ namespace CarRentUnitTests
             var actual = car.IsFreeTorent(new DateTime(2017, 10, 9), new DateTime(2017, 10, 9));
             //assert
             Assert.IsFalse(actual);
+        }
+        [TestMethod]
+        public void CarWithReservations_IsFreetoRentonDate()
+        {
+            //arr
+            var car = new Car("Ford Focus 3", "black");
+            //act
+            var actual = car.IsFreeTorent(new DateTime(2017, 10, 9), new DateTime(2017, 10, 9));
+            //assert
+            Assert.IsTrue(actual);
         }
         [TestMethod]
         public void CarsWithReservations_NeedItonCheckUp()

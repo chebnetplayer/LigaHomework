@@ -11,11 +11,18 @@ namespace CarRent
             try
             {
                 var carlist = CarsDatabase.DeserializeDatabase();
-                var car = carlist.Find(
-                    i => i._reservations.Find(j => j._reservationID == reservationid)._reservationID == reservationid);
-                var carid = carlist.FindIndex(
-                    i => i._reservations.Find(j => j._reservationID == reservationid)._reservationID == reservationid);
-                car.SendToRent();
+                int id=0, carid=0;
+                for(int i=0;i<carlist.Count;i++)
+                {
+                    if (carlist[i]._reservations.Count != 0)
+                    {
+                        id = carlist[i]._reservations.FindIndex(
+                          j => j._reservationID == reservationid);
+                        if (carlist[i]._reservations[id]._reservationID == reservationid)
+                            carid = i;
+                    }
+                }
+                carlist[carid].SendToRent();
                 CarsDatabase.ChangeCarStatusinDatabase(carid, OccupationStatus.Rented);
                 return true;
             }
@@ -26,12 +33,19 @@ namespace CarRent
             try
             {
                 var carlist = CarsDatabase.DeserializeDatabase();
-                var car = carlist.Find(
-                    i => i._reservations.Find(j => j._reservationID == reservationid)._reservationID == reservationid);
-                var carid = carlist.FindIndex(
-                    i => i._reservations.Find(j => j._reservationID == reservationid)._reservationID == reservationid);
+                int id = 0, carid = 0;
+                for (int i = 0; i < carlist.Count; i++)
+                {
+                    if (carlist[i]._reservations.Count != 0)
+                    {
+                        id = carlist[i]._reservations.FindIndex(
+                          j => j._reservationID == reservationid);
+                        if (carlist[i]._reservations[id]._reservationID == reservationid)
+                            carid = i;
+                    }
+                }
                 //после 10 аренд машина автоматически отправляется на ТО
-                if (car.NeedItOnCheckup())
+                if (carlist[carid].NeedItOnCheckup())
                 {
                     SentCaronCheckup(carid);
                 }
@@ -45,11 +59,7 @@ namespace CarRent
             var newcar = new Car(model, color);
             CarsDatabase.AddNewcarinDataBase(newcar);
         }
-        public static void ReturnCarAfterCheckUp()
-        {
-
-        }
-        public static void ReturnCaronCheckup()
+        public static void ReturnCarafterCheckup()
         {
             var carslist = CarsDatabase.DeserializeDatabase();
             for (int i = 0; i < carslist.Count - 1; i++)
@@ -61,12 +71,7 @@ namespace CarRent
         }
         public static void SentCaronCheckup(int carid)
         {
-           var carslist = CarsDatabase.DeserializeDatabase();
-           foreach(var i in carslist)
-            {
-                if (DateTime.Today ==i.GetdateofCheckupStart().AddDays(7))
-                    CarsDatabase.ChangeCarStatusinDatabase(carid, OccupationStatus.Free);
-            }         
+            CarsDatabase.ChangeCarStatusinDatabase(carid, OccupationStatus.OnCheckUp);
         }
     }
 }

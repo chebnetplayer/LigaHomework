@@ -57,12 +57,11 @@ namespace CarRentUnitTests
             ClearDB();
             File.WriteAllText(dataBasePath, JsonConvert.SerializeObject(cars));
             //act
-            CarsDatabase.ChangeCarStatusinDatabase(1, OccupationStatus.Rented);
-            var actual = CarsDatabase.DeserializeDatabase()[1]._occupationStatus ==
+            CarsDatabase.ChangeCarStatusinDatabase(0, OccupationStatus.Rented);
+            var actual = CarsDatabase.DeserializeDatabase()[0]._occupationStatus ==
                 OccupationStatus.Rented;
             //ass
             Assert.IsTrue(actual);
-
         }
         private void ClearDB()
         {

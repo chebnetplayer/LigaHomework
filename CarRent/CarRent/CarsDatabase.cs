@@ -57,7 +57,7 @@ namespace CarRent
             }
             catch
             {
-                return "-1";
+                return "FAIL";
             }
         }
         public static void ResetDataBase()
