@@ -10,7 +10,7 @@ namespace CarRentUnitTests
     [TestClass]
     public class AdministratorUnitTest
     {
-        string dataBasePath = @"C:\Users\user\Documents\Visual Studio 2015\Projects\CarRent\DataBase.json";
+        string dataBasePath = @"DataBase.json";
         [TestMethod]
         public void ReservationIdonCar_WasCarRented()
         {   //arr

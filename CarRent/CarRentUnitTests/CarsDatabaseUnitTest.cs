@@ -9,7 +9,7 @@ namespace CarRentUnitTests
     [TestClass]
     public class CarsDatabaseUnitTest
     {
-        string dataBasePath=@"C:\Users\user\Documents\Visual Studio 2015\Projects\CarRent\DataBase.json";
+        string dataBasePath=@"DataBase.json";
         [TestMethod]
         public void Car_IsCarAddedinGarage()
         {
