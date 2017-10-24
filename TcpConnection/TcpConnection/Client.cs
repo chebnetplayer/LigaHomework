@@ -12,8 +12,8 @@ namespace TcpConnection
             try
             {
                 Console.Write("Введите ip-адрес сервера: ");
-                var iphostentry = Dns.GetHostEntry(Console.ReadLine());
-                var ipaddress = iphostentry.AddressList[0];
+                //var iphostentry = Dns.GetHostEntry(Console.ReadLine());
+                var ipaddress = IPAddress.Parse("192.168.1.193");
                 Console.Write("Введите подключаемый порт: ");
                 var ipEndpoint = new IPEndPoint(ipaddress, int.Parse(Console.ReadLine()));
                 var socketclient = new Socket(ipEndpoint.AddressFamily, SocketType.Stream, ProtocolType.Tcp);
@@ -40,8 +40,7 @@ namespace TcpConnection
             try
             {
                 Console.Write("Введите ip-адрес сервера: ");
-                var iphostentry = Dns.GetHostEntry(Console.ReadLine());
-                var ipaddress = iphostentry.AddressList[0];
+                var ipaddress = IPAddress.Parse("192.168.1.134");
                 Console.Write("Введите подключаемый порт: ");
                 var ipEndpoint = new IPEndPoint(ipaddress, int.Parse(Console.ReadLine()));
                 var socketclient = new Socket(ipEndpoint.AddressFamily, SocketType.Stream, ProtocolType.Tcp);
