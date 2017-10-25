@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace LeagueGram
 {
@@ -16,9 +12,9 @@ namespace LeagueGram
         }
         public void EditMessage(string newmessage)
         {
-            throw new NotImplementedException();
+            Text = newmessage;
         }
-        public string Text { get; }
+        public string Text { get; private set; }
         public Guid Id { get; }
         public Guid SenderId { get; }
 

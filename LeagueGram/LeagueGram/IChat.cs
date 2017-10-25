@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace LeagueGram
 {
@@ -11,8 +7,8 @@ namespace LeagueGram
         void SendMessage(Guid senderid,string text);
         void EditMessage(Guid messageid,string newtext,Guid whoedit);
         void DeleteMessege(Guid messageid, Guid whodelete);
-        void InviteUser(Guid userid, Guid whoinvite);
-        void DoMemberAdmin(Guid userid);
-        void DeleteMemberFromAdmin(Guid userid);
+        void InviteUser(User userid, User whoinvite);
+        void DoMemberAdmin(Guid userid,Guid whodo);
+        void DeleteMemberFromAdmin(Guid userid,Guid whodelete);
     }
 }
