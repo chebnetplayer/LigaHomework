@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace LeagueGram
+﻿namespace LeagueGram
 {
-    interface IMessage
+    internal interface IMessage
     {
         void EditMessage(string newmessage);
     }

@@ -1,34 +1,15 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace LeagueGram
 {
-    public class User:IChatCreator
+    public class User
     {
-        public User(string nickname)
+        public User(string nickname,Guid id)
         {
-            _nickname = nickname;
-            Id = Guid.NewGuid();
+            Nickname = nickname;
+            Id = id;
         }
         public Guid Id { get; }
-        public string _nickname { get; }
-
-        public void CreateChannel()
-        {
-            throw new NotImplementedException();
-        }
-
-        public void CreateGroup()
-        {
-            throw new NotImplementedException();
-        }
-
-        public void CreatePrivat()
-        {
-            throw new NotImplementedException();
-        }
+        public string Nickname { get; }
     }
 }

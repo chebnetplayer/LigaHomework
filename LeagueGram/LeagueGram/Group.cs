@@ -1,15 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace LeagueGram
 {
-    class Group : Chat
+    public class Group : Chat
     {
-        public Group(string chatname, User host) : base(chatname, host)
+        public Group(string chatname, User host,IEnumerable<User> inviteUsers) : base(chatname, host)
         {
+            ChatType = ChatType.Group;
+            var memberslist = Members.ToList();
+            memberslist.AddRange(inviteUsers.Where(i => !CheckUserOnParticipationinChat(i.Id)));
+            Members = memberslist.ToArray();
         }
     }
 }

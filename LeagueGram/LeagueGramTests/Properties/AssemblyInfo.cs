@@ -1,25 +1,25 @@
 ﻿using System.Reflection;
 using System.Runtime.InteropServices;
 
-// Управление общими сведениями о сборке осуществляется с помощью 
+// Управление общими сведениями о сборке осуществляется посредством следующего 
 // набора атрибутов. Измените значения этих атрибутов, чтобы изменить сведения,
 // связанные со сборкой.
-[assembly: AssemblyTitle("LeagueGram")]
+[assembly: AssemblyTitle("LeagueGramTests")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("LeagueGram")]
+[assembly: AssemblyProduct("LeagueGramTests")]
 [assembly: AssemblyCopyright("Copyright ©  2017")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
-// Параметр ComVisible со значением FALSE делает типы в сборке невидимыми 
-// для COM-компонентов.  Если требуется обратиться к типу в этой сборке через 
-// COM, задайте атрибуту ComVisible значение TRUE для этого типа.
+// Задание значения false для атрибута ComVisible приведет к тому, что типы из этой сборки станут невидимыми 
+// для COM-компонентов.  Если к одному из типов этой сборки необходимо обращаться из 
+// модели COM, задайте для атрибута ComVisible этого типа значение true.
 [assembly: ComVisible(false)]
 
-// Следующий GUID служит для идентификации библиотеки типов, если этот проект будет видимым для COM
-[assembly: Guid("46dfb920-f6af-4208-af81-8b97fd81f9af")]
+// Если данный проект доступен для модели COM, следующий GUID используется в качестве идентификатора библиотеки типов
+[assembly: Guid("ccdbd38c-2aa3-4659-9e1b-0b86bbf68f98")]
 
 // Сведения о версии сборки состоят из следующих четырех значений:
 //
@@ -30,6 +30,6 @@ using System.Runtime.InteropServices;
 //
 // Можно задать все значения или принять номера сборки и редакции по умолчанию 
 // используя "*", как показано ниже:
-// [assembly: AssemblyVersion("1.0.*")]
+// [сборка: AssemblyVersion("1.0.*")]
 [assembly: AssemblyVersion("1.0.0.0")]
 [assembly: AssemblyFileVersion("1.0.0.0")]

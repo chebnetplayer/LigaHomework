@@ -42,10 +42,11 @@
   <ItemGroup>
     <Compile Include="Channel.cs" />
     <Compile Include="Chat.cs" />
+    <Compile Include="ChatRep.cs" />
+    <Compile Include="ChatType.cs" />
     <Compile Include="Group.cs" />
     <Compile Include="IChat.cs" />
-    <Compile Include="IChatCreator.cs" />
-    <Compile Include="ILeaguegram.cs" />
+    <Compile Include="IChatRep.cs" />
     <Compile Include="IMessage.cs" />
     <Compile Include="LiagueGram.cs" />
     <Compile Include="Message.cs" />
